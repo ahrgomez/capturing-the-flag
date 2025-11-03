@@ -7,7 +7,6 @@ Welcome! This site hosts my personal collection of write-ups and walkthroughs fr
 
 ## Quick links
 - **Hack The Box**: [Example](platform/hackthebox/HTB-Example.md)
-- **TryHackMe**: [Example](platform/tryhackme/THM-Example.md)
 
 ## Tags (suggested)
-`web` `rce` `privesc` `linux` `windows` `sqli` `lfi` `buffer-overflow`
+`web` `rce` `privesc` `linux` `windows` `sqli` `lfi` `buffer-overflow
