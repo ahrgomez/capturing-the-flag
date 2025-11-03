@@ -58,11 +58,11 @@ Inside we can get an username named ike.
 
 Now we have an username but don't have a password so let's go to find it. If we go back to nmap enumeration results we have another port to can enumerate, port 500 (IKE), searching in Google we find the tool ike-scan.
 
-![IKE scan 1]./../assets/images/platform/hackthebox/expressway/ike-scan-1.jpg){ width=600 loading=lazy }
+![IKE scan 1]../../assets/images/platform/hackthebox/expressway/ike-scan-1.jpg){ width=600 loading=lazy }
 
 With this result we have useful fingerprint that says to us the encryption (SHA1) and the auth (PSK). Using other parameters we get a hash, saving this hash to a new file, using hashcatd with the IKE mode (5400) we get the freakingrockstarontheroad password.
 
-![IKE scan 2]./../assets/images/platform/hackthebox/expressway/ike-scan-2jpg){ width=600 loading=lazy }
+![IKE scan 2]../../assets/images/platform/hackthebox/expressway/ike-scan-2.jpg){ width=600 loading=lazy }
 
 ![Hashcat](../../assets/images/platform/hackthebox/expressway/hashcat.jpg){ width=600 loading=lazy }
 
