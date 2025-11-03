@@ -1,8 +1,8 @@
-site_name: "CTF Write-ups – Alex"
+site_name: "ahrgomez - CTF Write-ups"
 site_description: "Write-ups and walkthroughs for Hack The Box, TryHackMe, OSCP labs, and more."
-site_url: "https://<tu-usuario>.github.io/ctf-writeups"
-repo_name: "<tu-usuario>/ctf-writeups"
-repo_url: "https://github.com/<tu-usuario>/ctf-writeups"
+site_url: "https://ahrgomez.github.io/capturing-the-flag"
+repo_name: "ahrgomez/capturing-the-flag"
+repo_url: "https://github.com/ahrgomez/capturing-the-flag"
 
 theme:
   name: material
@@ -39,5 +39,5 @@ plugins:
 nav:
   - Home: index.md
   - HackTheBox:
-      - Example: platform/hackthebox/HTB-Example.md
+      - Expressway: platform/hackthebox/Expressway.md
 

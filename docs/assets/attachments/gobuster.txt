@@ -1,2 +1,0 @@
-# gobuster output placeholder
-# Replace with your real enumeration results
