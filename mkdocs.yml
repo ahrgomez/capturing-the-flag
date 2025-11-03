@@ -1,0 +1,45 @@
+site_name: "CTF Write-ups – Alex"
+site_description: "Write-ups and walkthroughs for Hack The Box, TryHackMe, OSCP labs, and more."
+site_url: "https://<tu-usuario>.github.io/ctf-writeups"
+repo_name: "<tu-usuario>/ctf-writeups"
+repo_url: "https://github.com/<tu-usuario>/ctf-writeups"
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.tracking
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - footnotes
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+  - glightbox
+
+nav:
+  - Home: index.md
+  - HackTheBox:
+      - Example: platform/hackthebox/HTB-Example.md
+  - TryHackMe:
+      - Example: platform/tryhackme/THM-Example.md
+
