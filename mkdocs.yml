@@ -40,6 +40,4 @@ nav:
   - Home: index.md
   - HackTheBox:
       - Example: platform/hackthebox/HTB-Example.md
-  - TryHackMe:
-      - Example: platform/tryhackme/THM-Example.md
 
