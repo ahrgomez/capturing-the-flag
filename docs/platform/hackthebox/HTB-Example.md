@@ -80,7 +80,7 @@ python3 /opt/scripts/maintenance.py
 ---
 
 ## Screenshots / Proof
-Example embedded image (store images under `docs/assets/images/`):
+Example embedded image (stored under `docs/assets/images/`):
 
 ![Admin panel](../../assets/images/htb-example-1.png){ width=600 loading=lazy }
 
@@ -107,4 +107,3 @@ Example embedded image (store images under `docs/assets/images/`):
 ---
 
 **Disclaimer:** This write-up documents a retired/hypothetical lab. Do not use these techniques against systems you do not own or have explicit permission to test.
-

@@ -1,0 +1,2 @@
+# nmap output placeholder
+# Replace with your real scan output
