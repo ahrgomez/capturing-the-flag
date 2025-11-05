@@ -38,7 +38,7 @@ whatweb 10.10.11.86
 
 Visiting the website we find a login page and a register page, we creates an user but the profile page doesn't give us nothing more interesting to exploit.
 
-![Login](../../assets/images/platform/hackthebox/soulmate/4-loginjpg){ width=600 loading=lazy }
+![Login](../../assets/images/platform/hackthebox/soulmate/4-login.jpg){ width=600 loading=lazy }
 
 ![Register](../../assets/images/platform/hackthebox/soulmate/5-register.jpg){ width=600 loading=lazy }
 
