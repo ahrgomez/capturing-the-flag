@@ -35,6 +35,10 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
+  - password:
+      password: "MiClaveSegura123"
+      paths:
+        - "posts/post-bloqueado.md"
 
 nav:
   - Home: index.md

@@ -29,6 +29,7 @@ jobs:
         run: |
           pip install mkdocs mkdocs-material
           pip install mkdocs-glightbox
+          pip install mkdocs-password-plugin
 
       - name: Build site
         run: mkdocs build --strict
