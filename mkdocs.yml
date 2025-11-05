@@ -38,7 +38,7 @@ plugins:
   - password:
       password: "MiClaveSegura123"
       paths:
-        - "posts/post-bloqueado.md"
+        - "platform/hackthebox/Soulmate/Soulmate.md"
 
 nav:
   - Home: index.md
