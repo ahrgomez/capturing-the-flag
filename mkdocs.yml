@@ -36,11 +36,15 @@ plugins:
   - search
   - glightbox
   - encryptcontent:
+      enabled: true
       title_prefix: '[LOCKED]'
       summary: 'Esta página está protegida.'
-      password: "MiClaveSegura123"
-      encrypt_paths:
-        - 'posts/post-bloqueado.md'
+      encryption_strength: strong
+      passwords:
+        - MiClaveSuperSegura123
+      encrypt_content:
+        - include: 
+            - 'platform/hackthebox/Soulmate.md'
 
 nav:
   - Home: index.md
