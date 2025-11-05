@@ -35,10 +35,12 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
-  - password:
+  - encryptcontent:
+      title_prefix: '[LOCKED]'
+      summary: 'Esta página está protegida.'
       password: "MiClaveSegura123"
-      paths:
-        - "platform/hackthebox/Soulmate/Soulmate.md"
+      encrypt_paths:
+        - 'posts/post-bloqueado.md'
 
 nav:
   - Home: index.md
