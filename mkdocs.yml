@@ -40,4 +40,5 @@ nav:
   - Home: index.md
   - HackTheBox:
       - Expressway: platform/hackthebox/Expressway.md
+      - Soulmate: platform/hackthebox/Soulmate.md
 

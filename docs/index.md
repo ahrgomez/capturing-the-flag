@@ -7,6 +7,7 @@ Welcome! This site hosts my personal collection of write-ups and walkthroughs fr
 
 ## Quick links
 - **Hack The Box**: [Expressway](platform/hackthebox/Expressway.md)
+- **Hack The Box**: [Soulmate](platform/hackthebox/Soulmate.md)
 
 ## Tags (suggested)
 `web` `rce` `privesc` `linux` `windows` `sqli` `lfi` `buffer-overflow`
