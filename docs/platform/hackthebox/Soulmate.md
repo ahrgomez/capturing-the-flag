@@ -53,7 +53,7 @@ wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://so
 
 ### Wordpress
 ```bash
-wpscan --url http://soulmate.htb   
+wpscan --url http://soulmate.htb   mysql://roundcube:RCDBPass2025@localhost/roundcube
 ```
 
 ![Wordpress](../../assets/images/platform/hackthebox/soulmate/7-not_wordpress.jpg){ width=600 loading=lazy }
